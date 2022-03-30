@@ -33,13 +33,6 @@ class Maya extends CI_Controller {
     $this->data['my_number'] = '';
     $btnSubmit = $this->input->post('btnSubmit');
     if(isset($btnSubmit)) {
-      $this->form_validation->set_error_delimiters('<div class="text-uppercase text-danger mt10">', '</div>');
-      $this->form_validation->set_rules('my_number', 'MY NUMBER', 'required|trim');
-      if ($this->form_validation->run() == FALSE) {
-        $this->data['records'] = array();
-        $this->load->view('index',$this->data);
-      }
-      else {
         $ip_address  = $this->input->ip_address();
         $page_link = base_url().'Maya/index/';
         if($ip_address == '::1'){
@@ -81,7 +74,6 @@ class Maya extends CI_Controller {
         ];
         $this->db->insert('web_views',$data_web_views);
         redirect(base_url().'Maya/predictions/'.$my_number.'/'.base64_encode($insert_id));
-      }
     }
     else {
       $this->load->view('index',$this->data);

@@ -58,19 +58,21 @@
 					<div class="fully_transparent_overlay"></div>
 				</div>
 				<div class="media-section-content">
-					<header class="content-box text-center container box_shadow" style="background: #fff6;border-radius: 6px;padding: 15px 15px;">
+					<header class="content-box text-center container" style="    overflow: hidden;">
 						<form action='<?php echo base_url().'Maya/index/'; ?>' enctype="multipart/form-data" class="position-relative" method="post" accept-charset="utf-8" id="predition_form">
 							<div class="row">
 								<div class="col-lg-12">
-									<div class="row mb-2">
-										<div class="col-lg-6">
-											<input autocomplete="off" type="text" class="form-control btn-block" placeholder="" id="my_number" name="my_number" maxlength="12" size="12" oninput="javascript: if(this.value.length>this.maxLength)this.value=this.value.slice(0,this.maxLength);" id="my_number" value="<?php echo $my_number; ?>" style="letter-spacing: 5px;">
+									<div class="row mb-4">
+										<div class="col-lg-8">
+											<div id="odometer" class="odometer w-100" style="letter-spacing: 3px;border-radius: 4px;height: 70px;padding-top: 5px;font-size: 56px;">000000000000</div>
+											<input type="hidden" class="my_number" id="my_number" name="my_number">
 										</div>
-										<div class="col-lg-3">
-											<button type="button" class="btn btn-primary btn-block btnStartStop" onclick="ss()">START</button>
+										<div class="col-lg-2">
+											<button type="button" class="btn btn-warning btn-block btnOtherInformationBox" style="height: 70px;">STEP1</button>
 										</div>
-										<div class="col-lg-3">
-											<button type="button" class="btn btn-warning btn-block btnOtherInformationBox">MORE</button>
+										<div class="col-lg-2">
+											<button type="button" class="btn btn-primary btn-block btnStartStop" style="height: 70px;">START</button>
+											<button type="button" class="btn btn-primary btn-block btnGet" style="height: 70px;">GET</button>
 										</div>
 									</div>
 								</div>
@@ -79,7 +81,7 @@
 								<div class="col-lg-12">
 									<div class="row mb-2">
 										<div class="col-lg-12">
-											<input autocomplete="off" type="text" class="form-control" name="name" id="name" placeholder="NAME">
+											<input autocomplete="off" type="hidden" class="form-control" name="name" id="name" placeholder="NAME">
 										</div>
 									</div>
 									<div class="row mb-2">
@@ -176,6 +178,7 @@
 		<?php $this->load->view('common/script'); ?>
 	</body>
 	<script>
+		var stoping_duration = 2000;
 		$(document).ready(function($) {
 	        $(document).on('click', '.btnStartStop', function(event) {
 	        	$(this).toggleClass('btn-danger');
@@ -188,8 +191,36 @@
 	        		$(this).html('START');
 	        		$('#intro_video').trigger('pause');
 	        	}
+	        	setTimeout(function() {
+	        		var my_number = '';
+		        	$('.odometer-value').each(function(index, el) {
+		        		var odometer_value = $.trim($(this).html());
+		        		my_number = my_number.concat(odometer_value);
+		        	});
+		        	$('.my_number').val(my_number);
+	        	}, 2000);
+	        	
+	        });
+	        $(document).on('click', '.btnGet', function(event) {
+	        	setTimeout(function() {
+	        		var my_number = '';
+		        	$('.odometer-value').each(function(index, el) {
+		        		var odometer_value = $.trim($(this).html());
+		        		my_number = my_number.concat(odometer_value);
+		        	});
+		        	$('.my_number').val(my_number);
+	        	}, 2000);
+	        	alert('my_number == '+my_number);
 	        });
 	        $(document).on('click', '.btnOtherInformationBox', function(event) {
+	        	setTimeout(function() {
+	        		var my_number = '';
+		        	$('.odometer-value').each(function(index, el) {
+		        		var odometer_value = $.trim($(this).html());
+		        		my_number = my_number.concat(odometer_value);
+		        	});
+		        	$('.my_number').val(my_number);
+	        	}, 2000);
 	        	$('#other_information_box').slideToggle( 'slow', function(){ });
 	        });
 	        var my_number = '<?php echo $my_number; ?>';
@@ -208,6 +239,25 @@
         function pauseVideo() {
             $('#intro_video').trigger('pause');
         }
+        function random_int(min, max) {
+	    	return Math.floor(Math.random() * (max - min + 1) + min);
+	  	}
+
+        setTimeout(function(){
+	       odometer.innerHTML = random_int(10000000000, 999999999999);
+		}, 1000);
+		setInterval( function() {
+				if($('.btnStartStop').hasClass('started')){
+					document.getElementById("odometer").innerHTML = random_int(999999999999,100000000000);
+	        	}
+	        	else {
+	        	}
+	  		},stoping_duration
+	  	);
+
+		
+
+
 	</script>
 	<script>
         

@@ -39,7 +39,7 @@
                     <select name="category_id" id="category_id" class="form-control show-tick">
                       <option value=""><?php echo $this->lang->line('Choose'); ?></option>
                       <?php foreach ($categories as $key => $value) { ?>
-                        <option <?php if(set_value('category_id') == $value['id']){ echo 'selected';} ?> value="<?php echo $value['id']; ?>"><?php echo $value['title']; ?></option>
+                        <option <?php if($category_id_encoded == base64_encode($value['id'])){echo 'selected';} ?> <?php if(set_value('category_id') == $value['id']){ echo 'selected';} ?> value="<?php echo $value['id']; ?>"><?php echo $value['title']; ?></option>
                       <?php } ?>
                     </select>
                     <?php echo form_error('category_id'); ?>

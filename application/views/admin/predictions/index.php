@@ -32,6 +32,16 @@
               </div>
             </div>
             <div class="body">
+              <div class="row">
+                <div class="col-lg-4">
+                  <select name="category_id" id="category_id" class="form-control">
+                    <option value="">CHOOSE CATEGORY</option>
+                    <?php foreach ($categories as $categoryDetails) { ?>
+                      <option <?php if($category_id_encoded == base64_encode($categoryDetails['id'])){echo 'selected';} ?> value="<?php echo base64_encode($categoryDetails['id']); ?>"><?php echo $categoryDetails['title']; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
               <div class="table-responsive">
                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                   <thead>
@@ -120,6 +130,11 @@
             searchPlaceholder: "TYPE HERE FOR SEARCH",
         },
       });
+    });
+    $(document).on('change', '#category_id', function(event) {
+      event.preventDefault();
+      var category_id = $.trim($(this).val());
+      window.location.href = '<?php echo base_url().'admin/predictions/index/'; ?>'+category_id;
     });
   });
 </script>

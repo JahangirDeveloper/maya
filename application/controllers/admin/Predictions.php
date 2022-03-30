@@ -16,17 +16,19 @@ class Predictions extends CI_Controller {
         $this->lang->load('information', $language);
         $this->load->model('Predictions_model');
     }
-    public function index()
+    public function index($category_id_encoded=false)
 	{
 		$this->data['pageTitle'] = $this->lang->line('Predictions');
-		$this->data['predictions']     = $this->Predictions_model->getPrediction();
-		$this->data['categories'] = $this->Predictions_model->getCategory();
+		$this->data['predictions'] = $this->Predictions_model->getPrediction(false,base64_decode($category_id_encoded));
+		$this->data['categories']      = $this->Predictions_model->getCategory();
+		$this->data['category_id_encoded'] = $category_id_encoded;
 		$this->load->view('admin/predictions/index',$this->data);
 	}
-    public function add()
+    public function add($category_id_encoded=false)
 	{
 		$this->data['pageTitle'] = $this->lang->line('add_Prediction');
 		$this->data['categories'] = $this->Predictions_model->getCategory();
+		$this->data['category_id_encoded'] = $category_id_encoded;
 		$this->data['error'] = array();
 		$btnADD = $this->input->post('btnADD');
 		if(isset($btnADD)) {
@@ -57,14 +59,14 @@ class Predictions extends CI_Controller {
 	                $Flashdata['alert_msg'] = 'SAVED SUCCESSFULLY';
 	                $this->session->set_flashdata($Flashdata);
 					if($btnADD =='yes'){
-						redirect(base_url()."admin/predictions/add/");
+						redirect(base_url()."admin/predictions/add/".base64_encode($category_id));
 					}
 					elseif ($btnADD =='yes_close') {
-						redirect(base_url()."admin/predictions/index/");
+						redirect(base_url()."admin/predictions/index/".base64_encode($category_id));
 					}
 				}
 				else {
-					redirect(base_url()."admin/predictions/add/");
+					redirect(base_url()."admin/predictions/add/".base64_encode($category_id));
 				}
 			}
 		}
@@ -105,7 +107,7 @@ class Predictions extends CI_Controller {
 						redirect(base_url()."admin/predictions/edit/".$prediction_id_encoded);
 					}
 					elseif ($btnEdit =='yes_close') {
-						redirect(base_url()."admin/predictions/index/");
+						redirect(base_url()."admin/predictions/index/".base64_encode($category_id));
 					}
 				}
 				else {

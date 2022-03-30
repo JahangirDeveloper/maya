@@ -30,7 +30,7 @@ class Predictions_model extends CI_Model {
             return false;
         }
     }
-    public function getPrediction($id=false)
+    public function getPrediction($id=false,$category_id=false)
     {
         $language = $this->session->userdata('language');
         $dir      = $this->session->userdata('dir');
@@ -38,8 +38,12 @@ class Predictions_model extends CI_Model {
         if($id){
             $this->db->where('id',$id);
         }
+        if($category_id){
+            $this->db->where('category_id',$category_id);
+        }
         $this->db->where('is_delete','0');
         $this->db->where('is_active','1');
+        $this->db->order_by('category_id','asc');
         $query = $this->db->get('prediction_tbl');
         if($query->num_rows() > 0) {
             foreach ($query->result_array() as $key => $value) {
@@ -95,6 +99,7 @@ class Predictions_model extends CI_Model {
         }
         $this->db->where('is_delete','0');
         $this->db->where('is_active','1');
+        $this->db->order_by('id','asc');
         $query = $this->db->get('categories_tbl');
         if($query->num_rows() > 0) {
             foreach ($query->result_array() as $key => $value) {
