@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en" class="en ltr" dir="ltr">
+
+<!-- Mirrored from jamaliki.com/suggest/add by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 Dec 2021 12:09:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="description" content="Jamaliki" />
+    <meta name="keywords" content="" />
+
+    <meta name="google-signin-clientid" content="" />
+    <meta name="google-signin-cookiepolicy" content="single_host_origin" />
+    <meta name="google-signin-callback" content="signinCallback" />
+    <meta name="google-signin-scope" content="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email" />
+
+    <title>Jamaliki</title>
+
+    <link rel="icon" type="image/png" href="../images/favicon.png" />
+
+    <link rel="stylesheet" type="text/css" href="../../cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../cdnjs.cloudflare.com/ajax/libs/animate.css/3.3.1/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.0/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.structure.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:400,300,700" />
+    <link rel="stylesheet" type="text/css" href="../../fonts.googleapis.com/earlyaccess/droidarabickufi.css" />
+    <link rel="stylesheet" type="text/css" href="../css/jamaliki.css" />
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--[if gte IE 9]>
+    <style type="text/css">
+        .gradient {
+            filter: none;
+        }
+    </style>
+    <![endif]-->
+
+    <script type="text/javascript">
+        var myIP = "182.186.41.26";
+        var baseURL = "";
+    </script>
+    <script type="text/javascript">
+        var Geo = {};
+
+        function extractGeoData(data) {
+            Geo.lat = data.latitude;
+            Geo.lon = data.longitude;
+            Geo.city = data.city;
+        }
+    </script>
+    
+
+    <script>
+        var Strings = {
+            bookingOtherSalonError: "Your cart contains bookings for other salon, check out or clear cart to add services from other salon.",
+            bookingSlotTakenError: "This slot is not available at this time please try again in 10 minutes from now.",
+            maxBookingError: "You can add maximum 3 bookings",
+        };
+    </script>
+
+
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="header">
+    <div class="inner group">
+        <div id="logo">
+            <h1>
+                <a href="../index.html">
+                    <img src="../images/logo-jamaliki.png" alt="Jamaliki - Your Beauty Destination" />
+                </a>
+            </h1>
+        </div>
+
+        <div id="account-social" class="group">
+            <div class="group">
+                <div class="menu">
+                    <button>
+									<span>
+										<i class="fa fa-bars"></i>
+									</span>
+                    </button>
+                </div>
+
+                <div class="account">
+                                            <ul>
+                            <li>
+                                <a href="../login.html">Sign in</a>
+                            </li>
+                            <li>
+                                <a href="../register.html">Sign up</a>
+                            </li>
+                        </ul>
+                                    </div>
+
+                            </div>
+
+            <div class="social">
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/Jamaliki-256562768103467/">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.twitter.com/">
+                            <i class="fa fa-twitter-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/">
+                            <i class="fa fa-youtube-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.pintrest.com/">
+                            <i class="fa fa-pinterest-square"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+        </div>
+
+        <div id="menu">
+            <ul>
+                <li>
+                    <a href="../salons/category/hair.html">
+
+                        <img src="../images/icon-hair.png" alt="Hair" />
+
+                        <span>Hair</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../salons/category/nails.html">
+
+                        <img src="../images/icon-nails.png" alt="Nails" />
+
+                        <span>Nails</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../salons/category/massage.html">
+
+                        <img src="../images/icon-massage.png" alt="Massage" />
+
+                        <span>Massage</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../salons/category/hair-removal.html">
+
+                        <img src="../images/icon-hair-removal.png" alt="Hair Removal" />
+
+                        <span>Hair Removal</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../salons/category/makeup.html">
+                        <img src="../images/icon-makeup.png" alt="Makeup" />
+                        <span>Makeup</span>
+                    </a>
+                </li>
+
+
+
+                <li class="add-suggest">
+                    <div class="add">
+                        <a href="add.html">
+                            <i class="fa fa-plus-circle"></i>
+                            <span>Add your salon</span>
+                        </a>
+                    </div>
+                    <div class="suggest">
+                        <a href="../suggest.html">
+                            <i class="fa fa-comment"></i>
+                            <span>Suggest a salon</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+</div>
+
+
+    <div id="content" class="standalone">
+        <div class="breadcrumbs gradient">
+            <div class="inner">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            Home
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="add.html"> Add your salon</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="section">
+                <div class="section-heading">
+                    <h2>Add your salon</h2>
+                </div>
+
+                <div class="grid grid-2 group">
+                    <div class="box">
+
+                        <h3>Salon details</h3>
+
+                        <p>You can use the form below to suggest your salon that we should include in our index.</p>
+
+
+
+
+                        <form id="form" role="form" class="container" action="http://jamaliki.com/suggest/add" method="post">
+                            <div class="row">
+                                <label for="name">Name *</label>
+                                <input id="name" name="name" placeholder="Enter salon name ..." type="text" value="">
+
+                            </div>
+
+                            <div class="row">
+                                <label for="email">E-mail *</label>
+                                <input id="email" name="email" placeholder="Enter contact e-mail ..." type="text" value="">
+
+                            </div>
+
+                            <div class="row">
+                                <label for="phone">Phone *</label>
+                                <input id="phone" name="phone" placeholder="Enter contact phone ..." type="text" value="">
+
+                            </div>
+
+
+
+
+
+
+
+
+
+                            <div class="controls">
+                                <button type="submit">Send suggestion</button>
+                            </div>
+                        </form>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div id="footer">
+    <div class="inner">
+        <div class="grid grid-6 grid-col-4 group">
+            <div class="box">
+                <h4>Jamaliki</h4>
+
+                <ul class="links">
+                    <li>
+                        <a href="../content/about-jamaliki.html">About Jamaliki</a>
+                    </li>
+                    <li>
+                        <a href="../salons/featured.html">Featured salons</a>
+                    </li>
+
+                    <li>
+                        <a href="../blog/read/forever-young.html">Latest tip</a>
+                    </li>
+
+
+                    <li>
+                        <a href="../blog/read/christina.html">Latest product</a>
+                    </li>
+
+
+                    <li>
+                        <a href="../blog/read/salon-jamaliki-offer-oct-18.html">Hot offers</a>
+                    </li>
+
+                    <li>
+                        <a href="../contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h4>Categories</h4>
+
+                <ul class="links">
+                    <li>
+                        <a href="../salons/category/nails.html">Nails</a>
+                    </li>
+                    <li>
+                        <a href="../salons/category/hair.html">Hair</a>
+                    </li>
+                    <li>
+                        <a href="../salons/category/massage.html">Massage</a>
+                    </li>
+                    <li>
+                        <a href="../salons/category/hair-removal.html">Hair Removal</a>
+                    </li>
+                    <li>
+                        <a href="../salons/category/makeup.html">Makeup</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="box box-2">
+                <h4>Payment methods</h4>
+
+                <img style="width:105px;height:auto;" src="../images/mc_visa.gif" />
+            </div>
+
+            <div class="box box-2">
+                <h4>Newsletter</h4>
+
+                <form action="http://jamaliki.com/" method="post" role="form">
+
+                    <input type="email" placeholder="Sign up for our newsletter ..." />
+
+                    <button>
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <h4>Connect with us</h4>
+
+                <ul class="social">
+                    <li>
+                        <a href="https://www.facebook.com/Jamaliki-256562768103467/">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.twitter.com/">
+                            <i class="fa fa-twitter-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/">
+                            <i class="fa fa-youtube-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.pintrest.com/">
+                            <i class="fa fa-pinterest-square"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="middle group">
+
+        </div>
+
+        <div class="bottom group">
+            <ul class="links-inline">
+                <li>
+                    <a href="../content/termsandconditions.html">Terms and conditions</a>
+                </li>
+                <li>
+                    <a href="../content/privacy.html">Privacy policy</a>
+                </li>
+
+            </ul>
+
+            <p class="copy">&copy; 2021 Jamaliki</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="menu-account">
+    <div class="triangle"></div>
+
+    <div class="menu-content">
+        <ul>
+            <li>
+                <a href="../login.html">
+                    <i class="fa fa-user"></i>
+                    <span>Account</span>
+                </a>
+            </li>
+            <li>
+                <a href="../login.html">
+                    <i class="fa fa-list"></i>
+                    <span>Bookings</span>
+                </a>
+            </li>
+            <li>
+                <a href="../login.html">
+                    <i class="fa fa-star"></i>
+                    <span>Points</span>
+                </a>
+            </li>
+            <li>
+                <a href="../account/signout.html">
+                    <i class="fa fa-sign-out"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+            <!--
+            <li class="special">
+                <a href="/">
+                    <i class="fa fa-plus"></i>
+                    <span>Add your salon</span>
+                </a>
+            </li>
+            -->
+        </ul>
+    </div>
+</div>
+
+<div id="menu-cart">
+    <div class="triangle"></div>
+
+    <div class="menu-content">
+    </div>
+</div>
+
+<div id="menu-menu">
+    <div class="triangle"></div>
+
+    <div class="menu-content">
+        <ul>
+            <li>
+                <a href="../salons/hair.html">
+
+                    <img src="../assets/img/icon-hair.html" alt="Hair" />
+
+                    <span>Hair</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/nails.html">
+
+                    <img src="../assets/img/icon-nails.html" alt="Nails" />
+
+                    <span>Nails</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/massage.html">
+
+                    <img src="../assets/img/icon-massage.html" alt="Massage" />
+
+                    <span>Massage</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/hair-removal.html">
+
+                    <img src="../assets/img/icon-hair-removal.html" alt="Hair Removal" />
+
+                    <span>Hair Removal</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/makeup.html">
+                    <img src="../assets/img/icon-makeup.html" alt="Makeup" />
+
+                    <span>Makeup</span>
+                </a>
+            </li>
+
+            <!--
+            <li class="add-suggest add">
+                <a href="/">
+                    <i class="fa fa-plus-circle"></i>
+                    <span>Add your salon</span>
+                </a>
+            </li>
+            <li class="add-suggest suggest">
+                <a href="/">
+                    <i class="fa fa-comment"></i>
+                    <span>Suggest a salon</span>
+                </a>
+            </li>
+            -->
+        </ul>
+    </div>
+</div>
+
+<!-- mobile menus -->
+<!-- mobile main menu -->
+<div id="mobile-menu-main" class="mobile-menu">
+    <div class="title group">
+        <div class="icon">
+            <i class="fa fa-bars"></i>
+        </div>
+        <div class="text">
+            Menu
+        </div>
+        <div class="close">
+            <i class="fa fa-times"></i>
+        </div>
+    </div>
+
+    <div class="content">
+        <ul>
+            <li>
+                <a href="../salons/hair.html">
+
+                    <img src="../assets/img/icon-hair.html" alt="Hair" />
+                    <span>Hair</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/nails.html">
+
+                    <img src="../assets/img/icon-nails.html" alt="Nails" />
+                    <span>Nails</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/massage.html">
+
+                    <img src="../assets/img/icon-massage.html" alt="Massage" />
+                    <span>Massage</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/hair-removal.html">
+
+                    <img src="../assets/img/icon-hair-removal.html" alt="Hair Removal" />
+                    <span>Hair Removal</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/makeup.html">
+                    <img src="../assets/img/icon-makeup.html" alt="Makeup" />
+                    <span>Makeup</span>
+                </a>
+            </li>
+
+            <li class="add-suggest add">
+                <a href="add.html">
+                    <i class="fa fa-plus-circle"></i>
+                    <span>Add your salon</span>
+                </a>
+            </li>
+            <li class="add-suggest suggest">
+                <a href="../suggest.html">
+                    <i class="fa fa-comment"></i>
+                    <span>Suggest a salon</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- /mobile main menu -->
+
+<!-- mobile user menu -->
+
+<div id="mobile-menu-user" class="mobile-menu">
+    <div class="title group">
+        <div class="icon">
+            <i class="fa fa-user"></i>
+        </div>
+        <div class="text">
+            Account
+        </div>
+        <div class="close">
+            <i class="fa fa-times"></i>
+        </div>
+    </div>
+
+    <div class="content">
+        <ul>
+            <li>
+                <a href="../login.html">
+                    <i class="fa fa-fw fa-user"></i>
+                    <span>Account</span>
+                </a>
+            </li>
+            <li>
+                <a href="../login.html">
+                    <i class="fa fa-fw fa-list"></i>
+                    <span>Bookings</span>
+                </a>
+            </li>
+            <li>
+                <a href="../login.html">
+                    <i class="fa fa-fw fa-star"></i>
+                    <span>Points</span>
+                </a>
+            </li>
+            <li>
+                <a href="../account/signout.html">
+                    <i class="fa fa-fw fa-sign-out"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+            <!--
+            <li class="special">
+                <a href="/">
+                    <i class="fa fa-fw fa-plus"></i>
+                    <span>Add your salon</span>
+                </a>
+            </li>
+            -->
+        </ul>
+    </div>
+</div>
+
+<!-- /mobile user menu -->
+
+<!-- mobile cart menu -->
+<div id="mobile-menu-cart" class="mobile-menu">
+    <div class="title group">
+        <div class="icon">
+            <i class="fa fa-shopping-cart"></i>
+        </div>
+        <div class="text">
+            Cart
+        </div>
+        <div class="close">
+            <i class="fa fa-times"></i>
+        </div>
+    </div>
+
+    <div class="content">
+    </div>
+
+    <div class="footer">
+        <button data-event="menu-checkout" class="checkout">Checkout</button>
+    </div>
+</div>
+<!-- /mobile cart menu -->
+<!-- /mobile menus -->
+
+<div id="dim"></div>
+
+<div id="scrollTop">
+    <i class="fa fa-arrow-up"></i>
+</div>
+
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/jquery.actual/1.0.17/jquery.actual.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/history.js/1.8/bundled/html4%2bhtml5/jquery.history.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.0/js/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.1/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.0/js.cookie.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.0.3/sockjs.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+<script type="text/javascript" src="../js/jquery.noty.packaged.js"></script>
+<script type="text/javascript" src="../js/noty.jamaliki.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?language=en&amp;key=AIzaSyApdax3xb96js5NxsYOfjyPf6GHtPDjvJY"></script>
+<script type="text/javascript" src="../js/clndr.min.js"></script>
+<script type="text/javascript" src="../js/jamaliki.js"></script>
+<script type="text/javascript" src="../js/notifyService.js"></script>
+<script type="text/javascript" src="../js/user.js"></script>
+
+<script type="text/javascript">
+    (function() {
+        var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+        po.src = "../../apis.google.com/js/client_plusone2f83.js?onload=render";
+        var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+    })();
+
+    function render() {
+        if (document.getElementById("gsb") != null) {
+            gapi.signin.render("gsb");
+        }
+    }
+</script>
+
+<script>
+    function signinCallback(authResult) {
+        if (typeof $ != "undefined") {
+            $("#oauth-error").empty().hide();
+        }
+
+        try {
+            if (authResult["status"]["signed_in"] && authResult["g-oauth-window"]) {
+                gapi.client.load("plus", "v1", function() {
+                    var request = gapi.client.plus.people.get({
+                        "userId": "me"
+                    });
+
+                    request.execute(function(resp) {
+                        var firstName = resp.name.givenName;
+                        var lastName = resp.name.familyName;
+                        var email;
+                        var accessToken = authResult['access_token'];
+
+                        $.each(resp.emails, function(k, v) {
+                            if (v.type == "account") {
+                                email = v.value;
+                            }
+                        });
+
+                        var data = {
+                            firstName: firstName,
+                            lastName: lastName,
+                            email: email,
+                            accessToken: accessToken
+                        };
+
+                        $.post(baseURL + "/account/oauth/googleplus", data, function(res) {
+                            if (typeof res.success != "undefined" && res.success) {
+                                window.location = res.redirectUrl;
+                            } else {
+                                $("#oauth-error").html(res.errorText).fadeIn("fast");
+                            }
+                        });
+                    });
+                });
+            } else {
+                //   "user_signed_out" - User is signed-out
+                //   "access_denied" - User denied access to your app
+                //   "immediate_failed" - Could not automatically log in the user
+                if (authResult["error"] == "access_denied") {
+                    $("#oauth-error").html("You have denied access to your Google profile, please try again.").fadeIn("fast");
+                }
+
+                if (authResult["error"] == "user_signed_out") {
+                    window.location = baseURL + "/account/signout";
+                }
+            }
+        } catch (e) {
+            console.log(e.message);
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    var fbAppId = "1572554503041308";
+
+    window.fbAsyncInit = User.init;
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "../../connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+</body>
+
+<!-- Mirrored from jamaliki.com/suggest/add by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 Dec 2021 12:09:05 GMT -->
+</html>
+

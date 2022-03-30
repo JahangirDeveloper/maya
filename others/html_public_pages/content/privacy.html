@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en" class="en ltr" dir="ltr">
+
+<!-- Mirrored from jamaliki.com/content/privacy by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 Dec 2021 12:09:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="description" content="Jamaliki" />
+    <meta name="keywords" content="" />
+
+    <meta name="google-signin-clientid" content="" />
+    <meta name="google-signin-cookiepolicy" content="single_host_origin" />
+    <meta name="google-signin-callback" content="signinCallback" />
+    <meta name="google-signin-scope" content="https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email" />
+
+    <title>Jamaliki</title>
+
+    <link rel="icon" type="image/png" href="../images/favicon.png" />
+
+    <link rel="stylesheet" type="text/css" href="../../cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../cdnjs.cloudflare.com/ajax/libs/animate.css/3.3.1/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.0/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.structure.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:400,300,700" />
+    <link rel="stylesheet" type="text/css" href="../../fonts.googleapis.com/earlyaccess/droidarabickufi.css" />
+    <link rel="stylesheet" type="text/css" href="../css/jamaliki.css" />
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--[if gte IE 9]>
+    <style type="text/css">
+        .gradient {
+            filter: none;
+        }
+    </style>
+    <![endif]-->
+
+    <script type="text/javascript">
+        var myIP = "182.186.41.26";
+        var baseURL = "";
+    </script>
+    <script type="text/javascript">
+        var Geo = {};
+
+        function extractGeoData(data) {
+            Geo.lat = data.latitude;
+            Geo.lon = data.longitude;
+            Geo.city = data.city;
+        }
+    </script>
+    
+
+    <script>
+        var Strings = {
+            bookingOtherSalonError: "Your cart contains bookings for other salon, check out or clear cart to add services from other salon.",
+            bookingSlotTakenError: "This slot is not available at this time please try again in 10 minutes from now.",
+            maxBookingError: "You can add maximum 3 bookings",
+        };
+    </script>
+
+
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="header">
+    <div class="inner group">
+        <div id="logo">
+            <h1>
+                <a href="../index.html">
+                    <img src="../images/logo-jamaliki.png" alt="Jamaliki - Your Beauty Destination" />
+                </a>
+            </h1>
+        </div>
+
+        <div id="account-social" class="group">
+            <div class="group">
+                <div class="menu">
+                    <button>
+									<span>
+										<i class="fa fa-bars"></i>
+									</span>
+                    </button>
+                </div>
+
+                <div class="account">
+                                            <ul>
+                            <li>
+                                <a href="../login.html">Sign in</a>
+                            </li>
+                            <li>
+                                <a href="../register.html">Sign up</a>
+                            </li>
+                        </ul>
+                                    </div>
+
+                            </div>
+
+            <div class="social">
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/Jamaliki-256562768103467/">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.twitter.com/">
+                            <i class="fa fa-twitter-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/">
+                            <i class="fa fa-youtube-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.pintrest.com/">
+                            <i class="fa fa-pinterest-square"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+        </div>
+
+        <div id="menu">
+            <ul>
+                <li>
+                    <a href="../salons/category/hair.html">
+
+                        <img src="../images/icon-hair.png" alt="Hair" />
+
+                        <span>Hair</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../salons/category/nails.html">
+
+                        <img src="../images/icon-nails.png" alt="Nails" />
+
+                        <span>Nails</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../salons/category/massage.html">
+
+                        <img src="../images/icon-massage.png" alt="Massage" />
+
+                        <span>Massage</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../salons/category/hair-removal.html">
+
+                        <img src="../images/icon-hair-removal.png" alt="Hair Removal" />
+
+                        <span>Hair Removal</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../salons/category/makeup.html">
+                        <img src="../images/icon-makeup.png" alt="Makeup" />
+                        <span>Makeup</span>
+                    </a>
+                </li>
+
+
+
+                <li class="add-suggest">
+                    <div class="add">
+                        <a href="../suggest/add.html">
+                            <i class="fa fa-plus-circle"></i>
+                            <span>Add your salon</span>
+                        </a>
+                    </div>
+                    <div class="suggest">
+                        <a href="../suggest.html">
+                            <i class="fa fa-comment"></i>
+                            <span>Suggest a salon</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+</div>
+
+
+    <div id="content" class="standalone">
+        <div class="breadcrumbs gradient">
+            <div class="inner">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            Home
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="privacy.html">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="inner">
+            <div class="section">
+                <div class="section-heading">
+                    <h2>Privacy and Coockie Policy</h2>
+                </div>
+
+                <div class="cms-generated">
+                    <p>Overview</p>
+
+<p>This Privacy and Cookie Policy explains how Jamaliki uses your personal information. We are committed to protecting the privacy of our users and customers. This privacy policy is self-explanatory. It will inform you how we gather, define, and use your personal information, such as your name, email address, address and other contact details. <br />
+This policy (together with our Terms & Conditions) sets out the basis on which any personal data we collect from you, or that you provide to us, will be processed by us.<br />
+Please read the following carefully to understand our views and practices regarding your personal data and how we will treat it, and decide whether and how you wish to use our site, products and services. </p>
+
+<p>Information we may collect from you</p>
+
+<p>As you navigate through and interact with our Website, we may automatically collect certain information (User Data) about your equipment, browsing actions and patterns, including:<br />
+•    Personal information that you choose to share with us when you register for services, emails, newsletters and alerts<br />
+•    If you contact us, we may keep a record of that correspondence.<br />
+•    Information about the way our website has been used by you and others – collected on an aggregate basis.<br />
+•    We might also collect your IP address through the placement of cookies. <br />
+It is important that the Personal Information you give us when you register as a member or when you use our website, is correct and accurate. This includes, for instance, your correct contact (including e-mail) or details at all times.<br />
+We keep personal information secure. We strive to secure personal data in our possession wherever possible. However the transmission of information via the internet is not completely secure. So, while we do our best to protect your Personal Information, we cannot guarantee the security of your data transmitted to our website. Any transmission is at your own risk. Once we have received your Personal Information we will use strict procedures and security features to prevent unauthorized access. No company can promise you perfect security, but we want our users to know that securing our data is extremely important to us and that developing meaningful security mechanisms is a priority for Jamaliki.</p>
+
+<p><br />
+How do we use the information you provide to us?</p>
+
+<p>Generally speaking, we use personal information for purposes of administering and expanding our business activities, providing customer service and making available other products and services to our customers and prospective customers. Sometimes, we may also use the information we collect to notify you about important changes to this website, new services and special offers we think you will love. You may notify us of your desire not to receive these offers by clicking the unsubscribe link contained in each such email terms. Please note that this will only be done if you have consented to receiving such communications at the point of registration. <br />
+Unsubscribe from our regular emails<br />
+You can opt out of receiving automatic updates to the latest news by disabling updates at any time by clicking on the Unsubscribe link in the footer of the email you have received. Alternatively, you may email us. Please allow 48 hours for your email address to be removed from our system.<br />
+Our policy on Cookies<br />
+Similar to other websites, Jamaliki uses a standard technology called “cookies” (see explanation below, “What Are Cookies?”) and Web server logs to collect information about how this site is used. Information gathered through cookies and web server logs may include the date and time of visits, the pages viewed, time spent at this site, and the websites visited before and just after our website. The information we collect automatically is statistical data, and does not identify any individual. It helps us to improve our Website to deliver a better and more personalized service. </p>
+
+<p><br />
+We use cookies to:</p>
+
+<p> </p>
+
+<p>•    Contact you by email, mail, telephone or text message to let you know about any new products, services or promotions provided by third parties, but only according to the permissions you give us <br />
+•    Store information about your preferences, allowing us to tailor our Website according to your individual interests<br />
+•    Collect data about your use of the website which is then anonymized and used to help us improve our online services <br />
+•    Make our website work as efficiently as possible.<br />
+•    Speed up transactions and administer services to you and to our partners.</p>
+
+<p> </p>
+
+<p>What is a cookie?</p>
+
+<p><br />
+“A cookie is a small file, typically of letters and numbers, downloaded on to a device when the user accesses certain websites. Cookies are then sent back to the originating website on each subsequent visit. Cookies are useful because they allow a website to recognize a user’s device.”<br />
+— From the Information Commissioner’s Office guidance on the use of cookies<br />
+Find out more about the use of cookies on www.cookiecentral.com</p>
+
+<p>How do we use information we collect from cookies?<br />
+Cookies do not contain any personal information about you, but personal information that we store about you may be linked, by us, to the information stored in and obtained from cookies. As you browse our site, the site uses its cookies to differentiate you from other users to prevent you from seeing unnecessary advertisements or requiring you to log in more often than necessary. Add to that, we use the collected information, which does not identify individual users, to analyze trends, to administer the web site, to track users' movements around the site and to gather demographic information about our user base as a whole. Cookies, together with our web server's log files, will allow us to calculate the aggregate number of people visiting our website and to determine which parts of the site are most popular. This helps us gather information to assess and understand customer feedback and identify usage hotspots.</p>
+
+<p>Third Party Cookies<br />
+Third party cookies are placed by or on behalf of independent advertisers or partners who are advertising on our site. Most of the cookies we use are ours, however, we issue sometimes a cookie by a third party to help us operate the site -- these are sometimes known as “web beacons” or “clear gifts”. They are anonymous – they cannot identify individuals. They are used for statistical analysis by allowing the advertiser or partner to count how many people have seen their advertisement or offers. They might also allow the advertiser or partner to tailor advertising to you when you visit other websites.<br />
+We may disclose general, aggregated or anonymized data about your visits and use of our website, but we will never disclose any of your Personal Information which identifies you or from which you may be identifiable, for instance we will never disclose your contact details including but not limited to your phone number, address, name and email address.<br />
+Third parties that usually generate these cookies have their own, very strict, privacy policies; however, we don't have access to these cookies. Other than allowing them to be served, we have no role to play in these cookies at all, although we may use statistical information arising from these third party cookies to enhance our website experience.<br />
+You can opt out of interest-based ads by Google through Ads Settings. When you opt out, you will still see ads but they may not be related to factors such as your interests, previous visits to other websites, or demographic details.</p>
+
+<p>How do I remove or block cookies?<br />
+If you wish to restrict or block web browser cookies which are set on your device then you can do this through your browser settings; the Help function within your browser should tell you how However, please note, that switching off cookies may restrict your use of the website and/or delay or affect the way in which it operates.<br />
+Sharing personal information with third parties<br />
+We treat the security and method of processing your Personal Information very seriously, and we will never sell your personal information under any circumstances.<br />
+The information we collect is used to improve the content of this site and the quality of our service, and is not shared with or sold to others for commercial purposes. That being said, your information may be shared under the following circumstances: <br />
+•    To facilitate our business, including, but not limited to, sending email and processing payments</p>
+
+<p>•    In accordance with your authorization as expressed via ‘opt-ins’<br />
+•    As we develop our business, we may buy or sell assets or business offerings. In this case, we may disclose your Personal Information to the seller or buyer of such business or assets<br />
+•    If it becomes necessary to share information in order to investigate, prevent, or take action regarding illegal activities, suspected fraud, situations involving potential threats to the physical safety of any person, violations of our Terms of Service, or as required by the law. This includes exchanging information with other companies and organizations for fraud and credit risk reduction.<br />
+Please note that by posting any personal information in any publicly accessible area of our website, such information may be collected by third parties over which we have no control.<br />
+We strongly recommend all users to post anonymously on our website. We cannot be held responsible for the use of such information by such third parties.<br />
+Therefore, you are kindly requested to exercise all due care before disclosing any personal Information that will be disclosed on public areas, including but not limited to your name, age, home address or name of your employer, especially if you disclose any sensitive personal information such as:<br />
+•    political beliefs<br />
+•    physical or mental health<br />
+•    racial or ethnic origin<br />
+•    religious beliefs<br />
+•    affiliation to a trade union or political party<br />
+•    sexual life<br />
+•    The commission of criminal offences or proceedings.</p>
+
+<p>How to access and correct your personal information?<br />
+If you have any inquiries about any personal information that we hold about you, you may submit a request by sending an email and we will deploy all efforts to respond to such requests.<br />
+What about other websites linked to our website?<br />
+We shall not be liable for the practices of the websites linked to website nor the information or content contained therein. The links to other websites are often provided solely as pointers to information on topics that may be useful to the users of our website. Kindly note that when you use a link to go from our website to another website, our Privacy Policy is no longer in effect. Your browsing and interaction on any other website, including websites which have a link on our website, will be subject to the other website's own rules and policies. <br />
+Your consent<br />
+By using our website you agree on our collection and use of your personal information as described in this Privacy Policy. We will post notifications about the changes in our privacy policies and procedures, on our website homepage to keep you aware of what information we collect, how we use it and under what circumstances we may disclose it. <br />
+By continuing to access our website after the notification about the change is posted, it means that you agree to any such change to our Privacy Policy. Please stop using our website if you do not agree with such changes.<br />
+Partners<br />
+If you place an order through Jamaliki, your email address and contact details will be passed on to the related partner.</p>
+
+<p>Variations</p>
+
+<p>We may revise these Privacy and Cookie policies at any time by amending this page. You are expected to check this page to take notice of any changes we made, as they will be binding on you.</p>
+
+<p>All credit/debit cards details and personally identifiable information will NOT be stored, sold, shared, rented or leased to any third parties.</p>
+
+<p> </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div id="footer">
+    <div class="inner">
+        <div class="grid grid-6 grid-col-4 group">
+            <div class="box">
+                <h4>Jamaliki</h4>
+
+                <ul class="links">
+                    <li>
+                        <a href="about-jamaliki.html">About Jamaliki</a>
+                    </li>
+                    <li>
+                        <a href="../salons/featured.html">Featured salons</a>
+                    </li>
+
+                    <li>
+                        <a href="../blog/read/forever-young.html">Latest tip</a>
+                    </li>
+
+
+                    <li>
+                        <a href="../blog/read/christina.html">Latest product</a>
+                    </li>
+
+
+                    <li>
+                        <a href="../blog/read/salon-jamaliki-offer-oct-18.html">Hot offers</a>
+                    </li>
+
+                    <li>
+                        <a href="../contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box">
+                <h4>Categories</h4>
+
+                <ul class="links">
+                    <li>
+                        <a href="../salons/category/nails.html">Nails</a>
+                    </li>
+                    <li>
+                        <a href="../salons/category/hair.html">Hair</a>
+                    </li>
+                    <li>
+                        <a href="../salons/category/massage.html">Massage</a>
+                    </li>
+                    <li>
+                        <a href="../salons/category/hair-removal.html">Hair Removal</a>
+                    </li>
+                    <li>
+                        <a href="../salons/category/makeup.html">Makeup</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="box box-2">
+                <h4>Payment methods</h4>
+
+                <img style="width:105px;height:auto;" src="../images/mc_visa.gif" />
+            </div>
+
+            <div class="box box-2">
+                <h4>Newsletter</h4>
+
+                <form action="http://jamaliki.com/" method="post" role="form">
+
+                    <input type="email" placeholder="Sign up for our newsletter ..." />
+
+                    <button>
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <h4>Connect with us</h4>
+
+                <ul class="social">
+                    <li>
+                        <a href="https://www.facebook.com/Jamaliki-256562768103467/">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.twitter.com/">
+                            <i class="fa fa-twitter-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/">
+                            <i class="fa fa-youtube-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.pintrest.com/">
+                            <i class="fa fa-pinterest-square"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="middle group">
+
+        </div>
+
+        <div class="bottom group">
+            <ul class="links-inline">
+                <li>
+                    <a href="termsandconditions.html">Terms and conditions</a>
+                </li>
+                <li>
+                    <a href="privacy.html">Privacy policy</a>
+                </li>
+
+            </ul>
+
+            <p class="copy">&copy; 2021 Jamaliki</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="menu-account">
+    <div class="triangle"></div>
+
+    <div class="menu-content">
+        <ul>
+            <li>
+                <a href="../login.html">
+                    <i class="fa fa-user"></i>
+                    <span>Account</span>
+                </a>
+            </li>
+            <li>
+                <a href="../login.html">
+                    <i class="fa fa-list"></i>
+                    <span>Bookings</span>
+                </a>
+            </li>
+            <li>
+                <a href="../login.html">
+                    <i class="fa fa-star"></i>
+                    <span>Points</span>
+                </a>
+            </li>
+            <li>
+                <a href="../account/signout.html">
+                    <i class="fa fa-sign-out"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+            <!--
+            <li class="special">
+                <a href="/">
+                    <i class="fa fa-plus"></i>
+                    <span>Add your salon</span>
+                </a>
+            </li>
+            -->
+        </ul>
+    </div>
+</div>
+
+<div id="menu-cart">
+    <div class="triangle"></div>
+
+    <div class="menu-content">
+    </div>
+</div>
+
+<div id="menu-menu">
+    <div class="triangle"></div>
+
+    <div class="menu-content">
+        <ul>
+            <li>
+                <a href="../salons/hair.html">
+
+                    <img src="../assets/img/icon-hair.html" alt="Hair" />
+
+                    <span>Hair</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/nails.html">
+
+                    <img src="../assets/img/icon-nails.html" alt="Nails" />
+
+                    <span>Nails</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/massage.html">
+
+                    <img src="../assets/img/icon-massage.html" alt="Massage" />
+
+                    <span>Massage</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/hair-removal.html">
+
+                    <img src="../assets/img/icon-hair-removal.html" alt="Hair Removal" />
+
+                    <span>Hair Removal</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/makeup.html">
+                    <img src="../assets/img/icon-makeup.html" alt="Makeup" />
+
+                    <span>Makeup</span>
+                </a>
+            </li>
+
+            <!--
+            <li class="add-suggest add">
+                <a href="/">
+                    <i class="fa fa-plus-circle"></i>
+                    <span>Add your salon</span>
+                </a>
+            </li>
+            <li class="add-suggest suggest">
+                <a href="/">
+                    <i class="fa fa-comment"></i>
+                    <span>Suggest a salon</span>
+                </a>
+            </li>
+            -->
+        </ul>
+    </div>
+</div>
+
+<!-- mobile menus -->
+<!-- mobile main menu -->
+<div id="mobile-menu-main" class="mobile-menu">
+    <div class="title group">
+        <div class="icon">
+            <i class="fa fa-bars"></i>
+        </div>
+        <div class="text">
+            Menu
+        </div>
+        <div class="close">
+            <i class="fa fa-times"></i>
+        </div>
+    </div>
+
+    <div class="content">
+        <ul>
+            <li>
+                <a href="../salons/hair.html">
+
+                    <img src="../assets/img/icon-hair.html" alt="Hair" />
+                    <span>Hair</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/nails.html">
+
+                    <img src="../assets/img/icon-nails.html" alt="Nails" />
+                    <span>Nails</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/massage.html">
+
+                    <img src="../assets/img/icon-massage.html" alt="Massage" />
+                    <span>Massage</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/hair-removal.html">
+
+                    <img src="../assets/img/icon-hair-removal.html" alt="Hair Removal" />
+                    <span>Hair Removal</span>
+                </a>
+            </li>
+            <li>
+                <a href="../salons/makeup.html">
+                    <img src="../assets/img/icon-makeup.html" alt="Makeup" />
+                    <span>Makeup</span>
+                </a>
+            </li>
+
+            <li class="add-suggest add">
+                <a href="../suggest/add.html">
+                    <i class="fa fa-plus-circle"></i>
+                    <span>Add your salon</span>
+                </a>
+            </li>
+            <li class="add-suggest suggest">
+                <a href="../suggest.html">
+                    <i class="fa fa-comment"></i>
+                    <span>Suggest a salon</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- /mobile main menu -->
+
+<!-- mobile user menu -->
+
+<div id="mobile-menu-user" class="mobile-menu">
+    <div class="title group">
+        <div class="icon">
+            <i class="fa fa-user"></i>
+        </div>
+        <div class="text">
+            Account
+        </div>
+        <div class="close">
+            <i class="fa fa-times"></i>
+        </div>
+    </div>
+
+    <div class="content">
+        <ul>
+            <li>
+                <a href="../login.html">
+                    <i class="fa fa-fw fa-user"></i>
+                    <span>Account</span>
+                </a>
+            </li>
+            <li>
+                <a href="../login.html">
+                    <i class="fa fa-fw fa-list"></i>
+                    <span>Bookings</span>
+                </a>
+            </li>
+            <li>
+                <a href="../login.html">
+                    <i class="fa fa-fw fa-star"></i>
+                    <span>Points</span>
+                </a>
+            </li>
+            <li>
+                <a href="../account/signout.html">
+                    <i class="fa fa-fw fa-sign-out"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+            <!--
+            <li class="special">
+                <a href="/">
+                    <i class="fa fa-fw fa-plus"></i>
+                    <span>Add your salon</span>
+                </a>
+            </li>
+            -->
+        </ul>
+    </div>
+</div>
+
+<!-- /mobile user menu -->
+
+<!-- mobile cart menu -->
+<div id="mobile-menu-cart" class="mobile-menu">
+    <div class="title group">
+        <div class="icon">
+            <i class="fa fa-shopping-cart"></i>
+        </div>
+        <div class="text">
+            Cart
+        </div>
+        <div class="close">
+            <i class="fa fa-times"></i>
+        </div>
+    </div>
+
+    <div class="content">
+    </div>
+
+    <div class="footer">
+        <button data-event="menu-checkout" class="checkout">Checkout</button>
+    </div>
+</div>
+<!-- /mobile cart menu -->
+<!-- /mobile menus -->
+
+<div id="dim"></div>
+
+<div id="scrollTop">
+    <i class="fa fa-arrow-up"></i>
+</div>
+
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/jquery.actual/1.0.17/jquery.actual.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/history.js/1.8/bundled/html4%2bhtml5/jquery.history.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/Swiper/3.1.0/js/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.1/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.0/js.cookie.min.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.0.3/sockjs.js"></script>
+<script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+<script type="text/javascript" src="../js/jquery.noty.packaged.js"></script>
+<script type="text/javascript" src="../js/noty.jamaliki.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?language=en&amp;key=AIzaSyApdax3xb96js5NxsYOfjyPf6GHtPDjvJY"></script>
+<script type="text/javascript" src="../js/clndr.min.js"></script>
+<script type="text/javascript" src="../js/jamaliki.js"></script>
+<script type="text/javascript" src="../js/notifyService.js"></script>
+<script type="text/javascript" src="../js/user.js"></script>
+
+<script type="text/javascript">
+    (function() {
+        var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+        po.src = "../../apis.google.com/js/client_plusone2f83.js?onload=render";
+        var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+    })();
+
+    function render() {
+        if (document.getElementById("gsb") != null) {
+            gapi.signin.render("gsb");
+        }
+    }
+</script>
+
+<script>
+    function signinCallback(authResult) {
+        if (typeof $ != "undefined") {
+            $("#oauth-error").empty().hide();
+        }
+
+        try {
+            if (authResult["status"]["signed_in"] && authResult["g-oauth-window"]) {
+                gapi.client.load("plus", "v1", function() {
+                    var request = gapi.client.plus.people.get({
+                        "userId": "me"
+                    });
+
+                    request.execute(function(resp) {
+                        var firstName = resp.name.givenName;
+                        var lastName = resp.name.familyName;
+                        var email;
+                        var accessToken = authResult['access_token'];
+
+                        $.each(resp.emails, function(k, v) {
+                            if (v.type == "account") {
+                                email = v.value;
+                            }
+                        });
+
+                        var data = {
+                            firstName: firstName,
+                            lastName: lastName,
+                            email: email,
+                            accessToken: accessToken
+                        };
+
+                        $.post(baseURL + "/account/oauth/googleplus", data, function(res) {
+                            if (typeof res.success != "undefined" && res.success) {
+                                window.location = res.redirectUrl;
+                            } else {
+                                $("#oauth-error").html(res.errorText).fadeIn("fast");
+                            }
+                        });
+                    });
+                });
+            } else {
+                //   "user_signed_out" - User is signed-out
+                //   "access_denied" - User denied access to your app
+                //   "immediate_failed" - Could not automatically log in the user
+                if (authResult["error"] == "access_denied") {
+                    $("#oauth-error").html("You have denied access to your Google profile, please try again.").fadeIn("fast");
+                }
+
+                if (authResult["error"] == "user_signed_out") {
+                    window.location = baseURL + "/account/signout";
+                }
+            }
+        } catch (e) {
+            console.log(e.message);
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    var fbAppId = "1572554503041308";
+
+    window.fbAsyncInit = User.init;
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "../../connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+</body>
+
+<!-- Mirrored from jamaliki.com/content/privacy by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 Dec 2021 12:09:56 GMT -->
+</html>
+
