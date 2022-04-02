@@ -51,34 +51,38 @@
 		<main id="main" style="background-image: url('<?php echo base_url().'assets/img/bg-jungle.jpg'; ?>');">
 			<section class="media-bg">
 				<div class="video_box">
-					<video id="intro_video" controls loop style="height: auto;width: 100vw;">
+					<video id="intro_video" autoplay muted loop style="height: auto;width: 100vw;">
 					  <source src="<?php echo base_url().'uploads/videos/mayan720pHalf2.mp4';?>" type="video/mp4">
 						Your browser does not support the video tag.
 					</video>
 					<div class="fully_transparent_overlay"></div>
 				</div>
 				<div class="media-section-content">
-					<header class="content-box text-center container" style="    overflow: hidden;">
+					<header class="content-box text-center container" style="overflow: hidden;">
 						<form action='<?php echo base_url().'Maya/index/'; ?>' enctype="multipart/form-data" class="position-relative" method="post" accept-charset="utf-8" id="predition_form">
 							<div class="row">
-								<div class="col-lg-12">
-									<div class="row mb-4">
-										<div class="col-lg-8">
-											<div id="odometer" class="odometer w-100" style="letter-spacing: 3px;border-radius: 4px;height: 70px;padding-top: 5px;font-size: 56px;">000000000000</div>
+								<div class="col-lg-2"></div>
+								<div class="col-lg-8">
+									<div class="row mb-2">
+										<div class="col-lg-12">
+											<div id="odometer" class="odometer w-100" style="letter-spacing: 3px;border-radius: 4px;height: 70px;padding-top: 5px;font-size: 56px;color: #FFF !important;">000000000000</div>
 											<input type="hidden" class="my_number" id="my_number" name="my_number">
 										</div>
-										<div class="col-lg-2">
-											<button type="button" class="btn btn-warning btn-block btnOtherInformationBox" style="height: 70px;">STEP1</button>
+										<div class="col-lg-4">
+											
 										</div>
-										<div class="col-lg-2">
-											<button type="button" class="btn btn-primary btn-block btnStartStop" style="height: 70px;">START</button>
-											<button type="button" class="btn btn-primary btn-block btnGet" style="height: 70px;">GET</button>
+									</div>
+									<div class="row mb-2">
+										<div class="col-lg-12">
+											<button type="button" class="btn text-white btn-block btnStep1 border-0" style="background-color: #0b0d00; border-color: #0b0d00;background-image: -webkit-radial-gradient(rgba(139, 245, 165, 0.4), #000000);background-image: radial-gradient(rgba(139, 245, 165, 0.4), #000000);">STEP1</button>
 										</div>
 									</div>
 								</div>
+								<div class="col-lg-2"></div>
 							</div>
-							<div id="other_information_box" class="row" style="display: none;">
-								<div class="col-lg-12">
+							<div class="row" id="other_information_box" style="display: none;">
+								<div class="col-lg-2"></div>
+								<div class="col-lg-8">
 									<div class="row mb-2">
 										<div class="col-lg-12">
 											<input autocomplete="off" type="hidden" class="form-control" name="name" id="name" placeholder="NAME">
@@ -118,7 +122,6 @@
 												<?php } ?>
 											</select>
 										</div>
-										
 									</div>
 									<div class="row mb-2">
 										<div class="col-lg-4">
@@ -143,16 +146,22 @@
 										</div>
 									</div>
 								</div>
+								<div class="col-lg-2"></div>
+								<div class="clearfix"></div>
+								<div class="col-lg-2"></div>
+								<div class="col-lg-8">
+									<button type="button"  class="btn btn-success btn-block btnStop2" style="background-color: #0b0d00; border-color: #0b0d00;background-image: -webkit-radial-gradient(rgba(139, 245, 165, 0.4), #000000);background-image: radial-gradient(rgba(139, 245, 165, 0.4), #000000);">STEP 2</button>
+								</div>
+								<div class="col-lg-2"></div>
+								<div class="clearfix"></div>
 							</div>
 							<div class="row">
-								<div class="col-lg-12">
-									<button type="submit" name="btnSubmit" class="btn btn-success btn-block btnSubmit">SEE PREDICTIONS</button>
+								<div class="col-lg-2"></div>
+								<div class="col-lg-8">
+									<button type="submit" name="btnSubmit" class="btn btn-success btn-block btnSubmit d-none" style="background-color: #0b0d00; border-color: #0b0d00;background-image: -webkit-radial-gradient(rgba(139, 245, 165, 0.4), #000000);background-image: radial-gradient(rgba(139, 245, 165, 0.4), #000000);">SEE PREDICTIONS</button>
 								</div>
+								<div class="col-lg-2"></div>
 							</div>
-							<div class="form_error text-danger"><?php echo form_error('my_number'); ?></div>
-							<?php if( strlen($my_number)  != 12 && $my_number != '' ) { ?>
-								<div class="form_error text-danger">NUMBER IS NOT 12 DIGITS</div>
-							<?php } ?>
 						</form>
 					</header>
 				</div>
@@ -167,7 +176,7 @@
 		        <div class="modal-body">
 		          	<div class="form-check mb-3">
 					  	<label class="form-check-label">
-					    	<input type="checkbox" data-dismiss="modal" onclick="playVideo()" class="form-check-input btnAcceptCokies">ACCEPT COOKIES AND TERMS & CONDITIONS
+					    	<input type="checkbox" data-dismiss="modal" onclick="playVideo()" class="form-check-input btnAcceptCokies">ACCEPT COOKIES
 					  	</label>
 					</div>
 		        </div>
@@ -180,39 +189,8 @@
 	<script>
 		var stoping_duration = 2000;
 		$(document).ready(function($) {
-	        $(document).on('click', '.btnStartStop', function(event) {
-	        	$(this).toggleClass('btn-danger');
-	        	$(this).toggleClass('started');
-	        	if($(this).hasClass('started')){
-	        		$('#intro_video').trigger('play');
-	        		$(this).html('STOP');
-	        	}
-	        	else {
-	        		$(this).html('START');
-	        		$('#intro_video').trigger('pause');
-	        	}
-	        	setTimeout(function() {
-	        		var my_number = '';
-		        	$('.odometer-value').each(function(index, el) {
-		        		var odometer_value = $.trim($(this).html());
-		        		my_number = my_number.concat(odometer_value);
-		        	});
-		        	$('.my_number').val(my_number);
-	        	}, 2000);
-	        	
-	        });
-	        $(document).on('click', '.btnGet', function(event) {
-	        	setTimeout(function() {
-	        		var my_number = '';
-		        	$('.odometer-value').each(function(index, el) {
-		        		var odometer_value = $.trim($(this).html());
-		        		my_number = my_number.concat(odometer_value);
-		        	});
-		        	$('.my_number').val(my_number);
-	        	}, 2000);
-	        	alert('my_number == '+my_number);
-	        });
-	        $(document).on('click', '.btnOtherInformationBox', function(event) {
+	        $(document).on('click', '.btnStep1', function(event) {
+	        	$(this).addClass('d-none');
 	        	setTimeout(function() {
 	        		var my_number = '';
 		        	$('.odometer-value').each(function(index, el) {
@@ -223,6 +201,64 @@
 	        	}, 2000);
 	        	$('#other_information_box').slideToggle( 'slow', function(){ });
 	        });
+	        $(document).on('click', '.btnStop2', function(event) {
+	        	if($('#gender').val() == ''){
+	        		$('#gender').addClass('border-danger');
+	        	}
+	        	else if($('#birth_month').val() == ''){
+	        		$('#gender').removeClass('border-danger');
+	        		$('#gender').addClass('border-succes');
+
+	        		$('#birth_month').addClass('border-danger');
+	        	}
+	        	else if($('#birth_year').val() == ''){
+	        		$('#gender').removeClass('border-danger');
+	        		$('#gender').addClass('border-succes');
+
+	        		$('#birth_month').removeClass('border-danger');
+	        		$('#birth_month').addClass('border-succes');
+
+	        		$('#birth_year').addClass('border-danger');
+	        	}
+	        	else if($('#age').val() == ''){
+	        		$('#gender').removeClass('border-danger');
+	        		$('#gender').addClass('border-succes');
+
+	        		$('#birth_month').removeClass('border-danger');
+	        		$('#birth_month').addClass('border-succes');
+
+	        		$('#birth_year').removeClass('border-danger');
+	        		$('#birth_year').addClass('border-succes');
+
+	        		$('#age').addClass('border-danger');
+	        	}
+	        	else {
+	        		$('#gender').removeClass('border-danger');
+	        		$('#gender').addClass('border-succes');
+
+	        		$('#birth_month').removeClass('border-danger');
+	        		$('#birth_month').addClass('border-succes');
+
+	        		$('#birth_year').removeClass('border-danger');
+	        		$('#birth_year').addClass('border-succes');
+
+	        		$('#age').removeClass('border-danger');
+	        		$('#age').addClass('border-succes');
+
+	        		$(this).addClass('d-none');
+	        		$('.btnSubmit').removeClass('d-none');
+	        		$('#intro_video').trigger('pause');
+	        		setTimeout(function() {
+		        		var my_number = '';
+			        	$('.odometer-value').each(function(index, el) {
+			        		var odometer_value = $.trim($(this).html());
+			        		my_number = my_number.concat(odometer_value);
+			        	});
+			        	$('.my_number').val(my_number);
+		        	}, 2000);
+		        	$('#other_information_box').slideToggle('slow', function(){ });
+	        	}
+	        });
 	        var my_number = '<?php echo $my_number; ?>';
 	        if (my_number == '') {
 	        	$("#myModal").modal();
@@ -230,7 +266,6 @@
 		});
 		function playVideo() {
             $('#intro_video').trigger('play');
-            $('.btnStartStop').trigger('click');
             $('.media-section-content').addClass('top7p');
             setTimeout(function() {
 	        	$('.media-section-content').addClass('top7p');
@@ -246,13 +281,13 @@
         setTimeout(function(){
 	       odometer.innerHTML = random_int(10000000000, 999999999999);
 		}, 1000);
+
 		setInterval( function() {
-				if($('.btnStartStop').hasClass('started')){
-					document.getElementById("odometer").innerHTML = random_int(999999999999,100000000000);
-	        	}
-	        	else {
-	        	}
-	  		},stoping_duration
+				if($('.btnSubmit').hasClass('d-none')) {
+					console.log('testing...');
+					document.getElementById("odometer").innerHTML = random_int(100000000000,199999999999);
+				}
+	  		},2500
 	  	);
 
 		

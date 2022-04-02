@@ -413,6 +413,7 @@ $lang['Predictions'] = 'PREDICTIONS';
 $lang['add_Prediction']  = 'ADD PREDICTION';
 $lang['edit_Prediction'] = 'EDIT PREDICTION';
 $lang['delete_PREDICTION'] = 'DELETE PREDICTION';
+$lang['prediction_Count'] = 'PREDICTION COUNT';
 
 
 

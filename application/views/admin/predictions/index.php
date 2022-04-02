@@ -46,7 +46,7 @@
                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                   <thead>
                     <tr class="text-center">
-                      <th class="text-center">#</th>
+                      <th class="text-center"><?php echo '('.sizeof($predictions).')'; ?></th>
                       <th class="text-center"><?php echo $this->lang->line('Category'); ?></th>
                       <th class="text-center"><?php echo $this->lang->line('Prediction_EN'); ?></th>
                       <th class="text-center"><?php echo $this->lang->line('Prediction_AR'); ?></th>

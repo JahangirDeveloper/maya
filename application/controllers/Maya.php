@@ -95,7 +95,7 @@ class Maya extends CI_Controller {
       $this->data['records'] = $this->Maya_model->getSinglePredictionEachCategoryRandomly();
     }
     else {
-      $this->data['records'] = $this->Maya_model->getSinglePredictionEachCategoryRandomly('5');
+      $this->data['records'] = $this->Maya_model->getSinglePredictionEachCategoryRandomly();
     }
     $this->data['is_paid'] = $is_paid;
     $this->load->view('predictions',$this->data);

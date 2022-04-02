@@ -51,7 +51,7 @@
 		<main id="main" style="background-image: url('<?php echo base_url().'assets/img/bg-jungle.jpg'; ?>');">
 			<section class="media-bg">
 				<div class="video_box">
-					<video id="intro_video" controls autoplay style="height: auto;width: 100vw;">
+					<video id="intro_video" controls autoplay muted style="height: auto;width: 100vw;">
 					  <source src="<?php echo base_url().'uploads/videos/mayan720pFull.mp4';?>" type="video/mp4">
 						Your browser does not support the video tag.
 					</video>
@@ -76,12 +76,39 @@
 							<div class="prediction_box_inner" style="padding-bottom: 15px;display: none;">
 							<?php 
 								$counter = 1;
-								foreach ($records as $value) { ?>
-								<div class="row single_prediction position-relative mb-3 box_shadow">
+								$showing_counter = 0;
+								foreach ($records as $value) { $stars ='';?>
+								<div class="row text-white single_prediction position-relative mb-3 box_shadow">
 									<div class="black_overlay opecity_0_7"></div>
 									<div class="col-lg-12 col-md-12 col-sm-12 text-left">
-										<h5 class="text-white"><?php echo '('.$counter.') '.$value['category_name']; $counter++; ?></h5>
-										<p class="text-white"><?php echo $value['prediction']; ?></p>
+										<h5 class="text-white"><?php echo '('.$counter.') '.$value['category_name'];  ?></h5>
+										<p class="text-white">
+											<?php
+												if($is_paid == 'yes'){
+													echo $value['prediction'];
+												} 
+												else {
+													if($counter <= 5){
+												        echo $value['prediction'];
+												        $showing_counter++;
+												    }
+												    elseif($counter % 2 != 0 && $showing_counter <= 5) {
+												        
+
+												        $string = explode(" ", $value['prediction']);
+												        $string_words = sizeof($string);
+												        $first_part = implode(" ", array_splice($string, 0, 5));
+												        $remaining_words = ($string_words - 5);
+												        for ($i = 1; $i <= $remaining_words; $i++) {
+												        	$stars .='*';
+												        }
+												        echo $first_part.' '.$stars;
+												    }
+												}
+												
+											    $counter++;
+											?>
+										</p>
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -115,8 +142,6 @@
 	</body>
 	<script>
 		$(document).ready(function($) {
-	                
-	        //$('.prediction_box_inner').slideToggle();
 	        $(document).on('click', '.btnShowPredictions', function(event) {
 	        	$('.prediction_box_inner').slideToggle( 'slow', function(){ });
 	        	$('.prediction_box_inner').addClass('opened');
@@ -137,6 +162,7 @@
         function pauseVideo() {
             $('#intro_video').trigger('pause');
         }
+        $('.btnShowPredictions').trigger('click');
 	</script>
 	<script>
         

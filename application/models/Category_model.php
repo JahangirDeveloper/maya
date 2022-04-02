@@ -49,6 +49,7 @@ class Category_model extends CI_Model {
                 else{
                     $title      = $value['title_ar'];
                 }
+                $value['prediction_count'] = $this->getCountPredictions();
                 $value['title'] = $title;
                 $data[$value['id']] = $value;
             }
@@ -57,6 +58,13 @@ class Category_model extends CI_Model {
         else {
             return array();
         }
+    }
+    public function getCountPredictions($category_id=false)
+    {
+        $this->db->where('is_active','1');
+        $this->db->where('is_delete','0');
+        $query = $this->db->get('permissions_tbl');
+        return $query->num_rows();
     }
     public function getCategoryDetails($id=false)
     {
