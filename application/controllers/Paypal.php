@@ -4,8 +4,7 @@ class Products extends CI_Controller
     function  __construct() {
         parent::__construct();
         $this->load->library('paypal_lib');
-        $this->load->model('product');
-        $this->load->database();
+        $this->load->model('Products_model');
     }
      
     function index(){
@@ -26,7 +25,8 @@ class Products extends CI_Controller
         $userID = 1; //current user id
         $logo = base_url().'Your_logo_url';
          
-        $this->paypal_lib->add_field('return', $returnURL);
+        $this->
+        ->add_field('return', $returnURL);
         $this->paypal_lib->add_field('fail_return', $failURL);
         $this->paypal_lib->add_field('notify_url', $notifyURL);
         $this->paypal_lib->add_field('item_name', $product['name']);

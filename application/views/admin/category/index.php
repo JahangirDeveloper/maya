@@ -53,7 +53,7 @@
                         <td><?php echo $value['title_en']; ?></td>
                         <td><?php echo $value['title_ar']; ?></td>
                         <td>
-                          <a href="<?php echo base_url().'admin/predictions/index/'.base64_encode($value['prediction_count']); ?>"><?php echo $value['prediction_count']; ?></a>
+                          <a href="<?php echo base_url().'admin/predictions/index/'.base64_encode($value['id']); ?>"><?php echo $value['prediction_count']; ?></a>
                         </td>
                         <td>
                           <div class="btn-group">
@@ -62,7 +62,7 @@
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url().'admin/Category/edit/'.base64_encode($value['id']); ?>" class="waves-effect waves-block"><?php echo $this->lang->line('btn_edit'); ?></a></li>
-                                <li><a href="<?php echo base_url().'admin/predictions/index/'.base64_encode($value['prediction_count']); ?>" class="waves-effect waves-block"><?php echo $value['prediction_count']; ?></a></li>
+                                <li><a href="<?php echo base_url().'admin/predictions/index/'.base64_encode($value['id']); ?>" class="waves-effect waves-block"><?php echo $value['prediction_count']; ?></a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a type="button" tbl="<?php echo base64_encode('categories_tbl'); ?>" row="<?php echo base64_encode($value['id']); ?>" class="waves-effect waves-block btn_delete col-pink"><?php echo $this->lang->line('btn_delete'); ?> <i class="fa fa-trash float-right"></i></a></li>
                             </ul>

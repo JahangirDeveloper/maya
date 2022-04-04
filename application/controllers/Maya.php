@@ -18,11 +18,12 @@ class Maya extends CI_Controller {
         $this->lang->load('information',$language);
         $this->load->model('Maya_model');
         $this->load->model('User_model','User_model');
+        $this->load->library('paypal_lib');
         $this->session->set_userdata('user_id', '1');
         $this->session->set_userdata('name', 'Jahanigr');
 
   }
-	public function index()
+	public function index() 
 	{
     $name = $this->session->userdata('name');
     $user_id = $this->session->userdata('user_id');
@@ -73,15 +74,13 @@ class Maya extends CI_Controller {
           'created_date' => time(),
         ];
         $this->db->insert('web_views',$data_web_views);
-        redirect(base_url().'Maya/predictions/'.$my_number.'/'.base64_encode($insert_id));
+        redirect(base_url().'Maya/predictions/');
     }
     else {
       $this->load->view('index',$this->data);
     }
 	}
-  
-
-  public function predictions($my_number=false,$id_encoded=false)
+  public function predictions($id_encoded=false)
   {
     $name    = $this->session->userdata('name');
     $user_id = $this->session->userdata('user_id');
@@ -89,7 +88,6 @@ class Maya extends CI_Controller {
     $this->data['direction'] = $this->session->userdata('direction');
     $this->data['lng'] = $this->session->userdata('lng');
     $this->data['pageTitle'] = 'MAYA';
-    $this->data['my_number'] = $my_number;
     $is_paid = $this->Maya_model->checkIsPaid(base64_decode($id_encoded));
     if($is_paid == 'yes'){
       $this->data['records'] = $this->Maya_model->getSinglePredictionEachCategoryRandomly();
@@ -97,118 +95,100 @@ class Maya extends CI_Controller {
     else {
       $this->data['records'] = $this->Maya_model->getSinglePredictionEachCategoryRandomly();
     }
+    // echo $this->db->last_query();
+    // echo '<pre>';
+    // print_r($this->data['records']);
     $this->data['is_paid'] = $is_paid;
     $this->load->view('predictions',$this->data);
+  }  
+  public function buy(){ 
+    $userID = !empty($_SESSION['userID'])?$_SESSION['userID']:99; 
+    // Set variables for paypal form 
+    // $paymentData = [ 
+    //                 'user_id' => $userID,
+    //                 'product' => 'Predictions',
+    //                 'payment_gross' => 20,
+    //                 'payment_net' => 20,
+    //                 'currency_code' => 'USD',
+    //                 'payer_email' => '',
+    //                 'payment_status' => '',
+    //               ];
+    // $this->db->insert('payments',$paymentData);
+    // $insert_id = $this->db->insert_id();
+    // $encode_id = urlencode($insert_id);
+    $returnURL = base_url().'Maya/paymentSuccess/'; //payment success url 
+
+    $cancelURL = base_url().'Maya/paymentFail'; //payment cancel url 
+    $notifyURL = base_url().'Maya/IPN'; //ipn url 
+    // Get product data from the database 
+    $productDetails['id'] = '1';
+    $productDetails['name'] = 'MAYA PREDICTIONS';
+    $productDetails['price'] = Product_Price;
+    // Get current user ID from the session (optional) 
+    
+    // Add fields to paypal form 
+    $this->paypal_lib->add_field('return', $returnURL); 
+    $this->paypal_lib->add_field('cancel_return', $cancelURL); 
+    $this->paypal_lib->add_field('notify_url', $notifyURL); 
+    $this->paypal_lib->add_field('item_name', $productDetails['name']); 
+    $this->paypal_lib->add_field('custom', $userID); 
+    $this->paypal_lib->add_field('item_number',  $productDetails['id']); 
+    $this->paypal_lib->add_field('amount',  $productDetails['price']); 
+    // Render paypal form 
+    $this->paypal_lib->paypal_auto_form(); 
+  } 
+  
+  public function paymentSuccess(){
+ 
+        //get the transaction data
+        $paypalInfo            = $this->input->post();
+
+        print_r($paypalInfo);
+
+        $data['item_number']   = $paypalInfo['item_number']; 
+        $data['txn_id']        = $paypalInfo["tx"];
+        $data['payment_amt']   = $paypalInfo["amt"];
+        $data['currency_code'] = $paypalInfo["cc"];
+        $data['status']        = $paypalInfo["st"];
+
+        // Array ( [payer_email] => sb-y3e4v15251323@business.example.com [payer_id] => 9WGRD24R9DE6U [payer_status] => VERIFIED [first_name] => John [last_name] => Doe [address_name] => John Doe [address_street] => 1 Main St [address_city] => San Jose [address_state] => CA [address_country_code] => US [address_zip] => 95131 [residence_country] => US [txn_id] => 5YS4949171649513V [mc_currency] => USD [mc_gross] => 20.00 [protection_eligibility] => INELIGIBLE [payment_gross] => 20.00 [payment_status] => Pending [pending_reason] => unilateral [payment_type] => instant [handling_amount] => 0.00 [shipping] => 0.00 [item_name] => MAYA PREDICTIONS [item_number] => 1 [quantity] => 1 [txn_type] => web_accept [payment_date] => 2022-04-04T14:16:30Z [notify_version] => UNVERSIONED [custom] => 99 [verify_sign] => AuUuRLmOEKj94rqVAeEKJXSfWD2VA3Z1R8WDTByWsrQgbsiQbSXxXXRj )
+        
+        
+        //pass the transaction data to view
+        $this->load->view('paypal/paymentSuccess', $data);
+     }
+      
+  public function paymentFail(){
+    //if transaction cancelled
+    $this->load->view('paypal/paymentFail');
   }
-  public function setLang() {
-      $language = $this->input->post('language');
-     	if ($language == 'Arabic') {
-        $this->session->set_userdata('language', 'Arabic');
-     		$this->session->set_userdata('direction', 'rtl');
-     		$this->session->set_userdata('lng', 'ar');
-     	}
-     	elseif($language == 'English'){
-        $this->session->set_userdata('language', 'English');
-     		$this->session->set_userdata('direction', 'ltr');
-     		$this->session->set_userdata('lng', 'en');
-     	}
-      else {
-        $this->session->set_userdata('language', 'English');
-        $this->session->set_userdata('direction', 'ltr');
-        $this->session->set_userdata('lng', 'en');
-      }
-      echo json_encode(array('status' => '1','msg' => 'Success'));
-  }
-  public function english_dictionary()
-  {
-    $this->session->set_userdata('language', 'english');
-    $this->session->set_userdata('direction', 'ltr');
-    $this->session->set_userdata('lng', 'en');
-  }
-  public function check()
-  {
-    $language  = $this->session->userdata('language');
-    $direction = $this->session->userdata('direction');
-    $lng       = $this->session->userdata('lng');
-    $my_number = $this->input->post('my_number');
-    $records  = $this->Maya_model->getSinglePredictionEachCategoryRandomly();
-    $response['status'] = $status;
-    $response['msg'] = $msg;
-    echo json_encode($response);
-  }
-  function name()
-  {
-    $records  = $this->Maya_model->getSinglePredictionEachCategoryRandomly();
-    echo '<pre>';
-    print_r($records);
-    exit();
-    $lng      = $this->session->userdata('lng');
-    $dir      = $this->session->userdata('dir');
-    $language = $this->session->userdata('language');
-    $categories = array();
-    $this->db->where('is_active','1');
-    $this->db->where('is_delete','0');
-    $query = $this->db->get('categories_tbl');
-    if($query->num_rows() > 0) {
-      foreach ($query->result_array() as $key => $value) {
-        if ($language == 'English') {
-          $title = $value['title_en'];
-        }
-        else{
-          $title = $value['title_ar'];
-        }
-        $value['title'] = $title;
-        $categories[$value['id']] = $value;
-      }
+      
+  
+  //TODO:
+  //make transaction_status table that stores all the notifications from paypal
+  
+  //IPN is the NotificationURL that paypal will call everytime there is change in the transaction status
+  public  function IPN(){
+    //paypal return transaction details array
+    $paypalInfo    = $this->input->post();    
+
+    if ($paypalInfo['payment_status'] == 'pedning') {
+      // update the transaction
     }
-    $counter = 1;
-    foreach ($categories as $categoryDetails) {
-      $counter = 1;
-      $this->db->where('is_active','1');
-      $this->db->where('is_delete','0');
-      $this->db->where('category_id',$categoryDetails['id']);
-      $query = $this->db->get('prediction_tbl');
-      foreach ($query->result_array() as $key => $value) {
-        if ($language == 'English') { 
-          $title = $value['prediction_en'];
-        }
-        else {
-          $title = $value['prediction_en'];
-        }
-        $value['prediction_id'] = $value['id'];
-        $value['title'] = $title;
-        $all_categories[$categoryDetails['id']][$counter] = $value;
-        $counter++;
-      }
+
+    $data['user_id'] = $paypalInfo['custom'];
+    $data['product_id']    = $paypalInfo["item_number"];
+    $data['txn_id']    = $paypalInfo["txn_id"];
+    $data['payment_gross'] = $paypalInfo["mc_gross"];
+    $data['currency_code'] = $paypalInfo["mc_currency"];
+    $data['payer_email'] = $paypalInfo["payer_email"];
+    $data['payment_status']    = $paypalInfo["payment_status"];
+    $paypalURL = $this->paypal_lib->paypal_url;        
+    $result    = $this->paypal_lib->curlPost($paypalURL,$paypalInfo);
+    //check whether the payment is verified
+    if(preg_match("/VERIFIED/i",$result)){
+      //insert the transaction data into the database
+      $this->product->storeTransaction($data);
     }
-    foreach ($all_categories as $predictions) {
-      $predictions_count    = sizeof($predictions);
-      $random_prediction_id = rand(1,$predictions_count);
-      $prediction           = $predictions[$random_prediction_id];
-      $category_id          = $prediction['category_id'];
-      $category_name        = $categories[$category_id]['title'];
-      $prediction['category_name'] = $category_name;
-      $data[] = $prediction;
-    }
-    echo '<pre>';
-    print_r($data);
-    exit();
-
-
-
-
-
-    $this->db->select('categories_tbl.id as category_id,categories_tbl.title_en,categories_tbl.title_en,prediction_tbl.id,prediction_tbl.prediction_en,prediction_tbl.prediction_ar');
-    $this->db->from('prediction_tbl');
-    $this->db->join('categories_tbl', 'categories_tbl.id = prediction_tbl.category_id');
-    $this->db->where('categories_tbl.is_active','1');
-    $this->db->where('categories_tbl.is_delete','0');
-    $this->db->where('prediction_tbl.is_active','1');
-    $this->db->where('prediction_tbl.is_delete','0');
-    $this->db->group_by('prediction_tbl.category_id');
-    $this->db->order_by('rand()');
-    $this->db->limit('12');
-    $query = $this->db->get();
-    echo $this->db->last_query();
   }
 }

@@ -6,53 +6,15 @@
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $lng; ?>">
-<script type="text/javascript">
-  var t = [0, 0, 0, 0, 1000000000000, 0, 0, 1];
-  function ss() {
-    var min = 0;
-    var max = 1000000000;
-    t[t[2]]=(new Date()).valueOf();
-    t[2]=1-t[2];
-    if (0==t[2]) {
-      clearInterval(t[4]);
-      t[3]+=t[1]-t[0];
-      var row=document.createElement('tr');
-      var td=document.createElement('td');
-      td.innerHTML=(t[7]++);
-      row.appendChild(td);
-      td=document.createElement('td');
-      td.innerHTML=format(t[1]-t[0]);
-      row.appendChild(td);
-      td=document.createElement('td');
-      td.innerHTML=format(t[3]);
-      row.appendChild(td);
-      document.getElementById('lap').appendChild(row);
-      t[4]=t[1]=t[0]=0;
-      my_number();
-    } else {
-      t[4]=setInterval(my_number, 43);
-    }
-  }
-
-  function my_number() {
-    var random_number = Math.floor(Math.random() * (1000000000000 - 0 + 1) + 0);
-   if (t[2]) t[1] = random_number;
-   t[6].value = random_number
-  }
-  function load() {
-   t[5]= 1000000000000;
-   t[6]= document.getElementById('my_number');
-  }
-  t[6]= document.getElementById('my_number');
-</script>
 	<?php $this->load->view('common/head'); ?>
-	<body onload="load();">
+	<body>
 		<?php $this->load->view('common/header'); ?>
+		<audio id="intro_audio" loop src="<?php echo base_url().'uploads/videos/mayan720pHalf4.wav';?>"></audio>
 		<main id="main" style="background-image: url('<?php echo base_url().'assets/img/bg-jungle.jpg'; ?>');">
 			<section class="media-bg">
 				<div class="video_box">
 					<video id="intro_video" autoplay muted loop style="height: auto;width: 100vw;">
-					  <source src="<?php echo base_url().'uploads/videos/mayan720pHalf2.mp4';?>" type="video/mp4">
+					  <source src="<?php echo base_url().'uploads/videos/mayan720pHalf4.mp4';?>" type="video/mp4">
 						Your browser does not support the video tag.
 					</video>
 					<div class="fully_transparent_overlay"></div>
@@ -167,28 +129,13 @@
 				</div>
 			</section>
 		</main>
-		<!-- The Modal -->
-		<div class="modal" id="myModal" style="background-image: url('<?php echo base_url().'assets/img/bg-jungle.jpg'; ?>');background-size: cover;">
-			<div class="black_overlay opecity_0_6"></div>
-		    <div class="modal-dialog modal-xl">
-		      <div class="modal-content myModalContent">
-		        <!-- Modal body -->
-		        <div class="modal-body">
-		          	<div class="form-check mb-3">
-					  	<label class="form-check-label">
-					    	<input type="checkbox" data-dismiss="modal" onclick="playVideo()" class="form-check-input btnAcceptCokies">ACCEPT COOKIES
-					  	</label>
-					</div>
-		        </div>
-		      </div>
-		    </div>
-		</div>
 		<?php $this->load->view('common/footer'); ?>
 		<?php $this->load->view('common/script'); ?>
 	</body>
 	<script>
-		var stoping_duration = 2000;
 		$(document).ready(function($) {
+			var intro_audio = document.getElementById("intro_audio");
+	        intro_audio.play();
 	        $(document).on('click', '.btnStep1', function(event) {
 	        	$(this).addClass('d-none');
 	        	setTimeout(function() {
@@ -259,39 +206,26 @@
 		        	$('#other_information_box').slideToggle('slow', function(){ });
 	        	}
 	        });
-	        var my_number = '<?php echo $my_number; ?>';
-	        if (my_number == '') {
-	        	$("#myModal").modal();
-	        }
+			var audio = document.getElementById("intro_audio");
+
+			document.body.addEventListener("click", function () {			
+			    audio.play();
+			});
+        	
 		});
-		function playVideo() {
-            $('#intro_video').trigger('play');
-            $('.media-section-content').addClass('top7p');
-            setTimeout(function() {
-	        	$('.media-section-content').addClass('top7p');
-	        }, 22000);
-        }
-        function pauseVideo() {
-            $('#intro_video').trigger('pause');
-        }
+        
         function random_int(min, max) {
 	    	return Math.floor(Math.random() * (max - min + 1) + min);
 	  	}
-
         setTimeout(function(){
-	       odometer.innerHTML = random_int(10000000000, 999999999999);
-		}, 1000);
-
+	       odometer.innerHTML = random_int(100000000000, 999999999999);
+		}, 10);
 		setInterval( function() {
 				if($('.btnSubmit').hasClass('d-none')) {
-					console.log('testing...');
-					document.getElementById("odometer").innerHTML = random_int(100000000000,199999999999);
+					document.getElementById("odometer").innerHTML = random_int(100000000000,999999999999);
 				}
 	  		},2500
 	  	);
-
-		
-
 
 	</script>
 	<script>
